@@ -21,7 +21,6 @@
       overflow: hidden;
     }
 
-    /* Animasi background */
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -38,13 +37,11 @@
       border-right: 3px solid #fff;
     }
 
-    /* Efek typing */
     @keyframes typing {
       from { width: 0; }
       to { width: 100%; }
     }
 
-    /* Efek fade */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -60,6 +57,7 @@
       color: #fff;
       transition: 0.3s;
       box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+      margin: 10px;
     }
     button:hover {
       background: #e84118;
@@ -67,7 +65,6 @@
       animation: shake 0.3s;
     }
 
-    /* Efek goyang */
     @keyframes shake {
       0% { transform: translateX(0); }
       25% { transform: translateX(-4px); }
@@ -93,14 +90,33 @@
 </head>
 <body>
   <h1>🚀 Hello World!</h1>
+  
+  <!-- Tombol interaksi -->
   <button onclick="sayHello()">Klik Aku</button>
+  <button onclick="toggleMusic()">🎵 Play / Pause Musik</button>
+  
   <div id="message"></div>
+
+  <!-- Musik Background -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
 
   <script>
     function sayHello() {
       const msg = document.getElementById("message");
       msg.innerText = "Halo! 🎉 Selamat datang di web super keren ✨";
       msg.classList.add("show");
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
     }
   </script>
 </body>
