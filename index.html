@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World Super Keren</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #1e1e2f, #3a3a6a, #2c3e50, #34495e);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards, typing 4s steps(30, end);
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #fff;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: #ff4757;
+      color: #fff;
+      transition: 0.3s;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+      margin: 10px;
+    }
+    button:hover {
+      background: #e84118;
+      transform: scale(1.1) rotate(-1deg);
+      animation: shake 0.3s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-4px); }
+      100% { transform: translateX(0); }
+    }
+
+    #message {
+      margin-top: 25px;
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #f1c40f;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    #message.show {
+      opacity: 1;
+      animation: fadeIn 1.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 Hello World!</h1>
+  
+  <!-- Tombol interaksi -->
+  <button onclick="sayHello()">Klik Aku</button>
+  <button onclick="toggleMusic()">🎵 Play / Pause Musik</button>
+  
+  <div id="message"></div>
+
+  <!-- Musik Background -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <script>
+    function sayHello() {
+      const msg = document.getElementById("message");
+      msg.innerText = "Halo! 🎉 Selamat datang di web super keren ✨";
+      msg.classList.add("show");
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script>
+</body>
+</html>
